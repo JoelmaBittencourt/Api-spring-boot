@@ -23,14 +23,14 @@ public class Usuario implements Serializable {//daqui gera serialVersionUID
 	private Integer id;
 	
 	@NotEmpty(message="campo NOME é mandatório")
-	@Length(min=3, max= 100,message = "o nome deve ter entre 3 e 100 caracteres")
+	@Length(min=3, max= 100,message = "o nome deve ter entre 3 e 100 caracteres")//max e minimo e contem mensagem
  private String nome;
  
 	@NotEmpty(message="campo LOGIN é mandatório")
 	@Length(min=3, max= 100,message = "o nome deve ter entre 3 e 100 caracteres")
  private String login;
  
-	@NotEmpty(message="campo SENHA é mandatório")
+	@NotEmpty(message="campo SENHA é mandatório") //nao pode ser vazio e tem uma mensagem
 	@Length(min=3, max= 100,message = "o nome deve ter entre 3 e 100 caracteres")
  private String senha;
 
@@ -39,15 +39,16 @@ public Usuario() {
 	super();
 	
 }
-//constructor
+//constructor ,serve para ser instanciado
 public Usuario(Integer id, String nome, String login, String senha) {
 	super();
 	this.id = id;
-	this.nome = nome;
+	this.nome = nome;//se mudar aqui fica fixo,nao podera mais ser alterado e o banco de dados sempre vai gerar o mesmo nome
 	this.login = login;
 	this.senha = senha;
 }
 //getter e setter - da seriazable
+//getter mostra a informaçao,o setter insere
 public Integer getId() {
 	return id;
 }
@@ -80,7 +81,7 @@ public int hashCode() {
 	result = prime * result + ((id == null) ? 0 : id.hashCode());
 	return result;
 }
-@Override
+@Override//nao ter informaçao repetida
 public boolean equals(Object obj) {
 	if (this == obj)
 		return true;
